@@ -31,5 +31,5 @@ int main() {
     }
 
     printf("END.\n");
-    return found;
+    return 0;
 }
