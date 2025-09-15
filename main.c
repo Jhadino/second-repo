@@ -3,25 +3,32 @@
 
 
 int find_mul(int numbers[], int size, int k) {
-    int k_cube = k * k * k;
-    printf("search numbers %d^3 (%d)...\n", k, k_cube);
+    int k_cube = k * k * k; int tmp= 0;
     for (int i = 0; i < size; i++) {
         if (numbers[i] % k_cube == 0) {
-            printf("Find: %d\n", numbers[i]);
-            return 1;
+
+            tmp=1;
         }
     }
-    printf("No.\n", k);
-    return 0;
+    return tmp;
 }
 
 int main() {
     int numbers[] = {2, 8, 15, 27, 64, 10, 125};
     int size = sizeof(numbers) / sizeof(numbers[0]);
-    int k = 10;
+    int k = 5;
 
 
     int found = find_mul(numbers, size, k);
+
+    switch (found) {
+        case 1:
+            printf("Found  %d^3 (%d).\n", k, k * k * k);
+            break;
+        case 0:
+            printf("No %d^3 (%d) found.\n", k, k * k * k);
+            break;
+    }
 
     printf("END.\n");
     return found;
